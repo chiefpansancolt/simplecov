@@ -29,6 +29,11 @@ jobs:
           bundle config set --local without benchmark
           bundle install --jobs=3
 
+      - name: Wat Wat
+        run: |
+          chromium-browser --version
+          chrome --version
+
       - name: Run tests (MRI)
         run: bundle exec rake
         if: "!startsWith(matrix.ruby, 'jruby')"

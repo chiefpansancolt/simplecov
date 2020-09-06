@@ -51,8 +51,10 @@ end
 Then /^I should see a (.+) coverage summary of (\d+)\/(\d+)( for the file)?$/ do |coverage_type, hit, total, for_file|
   missed = total - hit
 
-  extra_class = for_file ? ".source_table" : ""
-  summary_text = find("#{extra_class} .t-#{coverage_type}-summary", visible: true).text
+  p Capybara.default_driver
+
+  extra_class = for_file ? ".source_table " : ""
+  summary_text = find("#{extra_class}.t-#{coverage_type}-summary", visible: true).text
 
   expect(summary_text).to match /#{total} .+ #{hit} .+ #{missed} /
 end
