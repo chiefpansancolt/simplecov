@@ -31,7 +31,6 @@ jobs:
 
       - name: Wat Wat
         run: |
-          chromium-browser --version
           chrome --version
 
       - name: Run tests (MRI)
