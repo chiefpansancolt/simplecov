@@ -31,7 +31,7 @@ jobs:
 
       - name: Wat Wat
         run: |
-          chrome --version
+          google-chrome-stable --version
 
       - name: Run tests (MRI)
         run: bundle exec rake
