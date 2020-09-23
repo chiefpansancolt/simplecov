@@ -23,9 +23,8 @@ end
 
 Then /^I should see the source files:$/ do |table|
   expected_files = table.hashes
-  available_source_files = all(".t-file", visible: true)
+  available_source_files = all(".t-file", visible: true, count: expected_files.count)
 
-  expect(expected_files.length).to eq(available_source_files.count)
   include_branch_coverage = table.column_names.include?("branch coverage")
 
   # Find all filenames and their coverage present in coverage report
