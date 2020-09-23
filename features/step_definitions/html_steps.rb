@@ -2,9 +2,8 @@
 
 Then /^I should see the groups:$/ do |table|
   expected_groups = table.hashes
-  available_groups = all("#content .file_list_container")
   # Given group names should be the same number than those rendered in report
-  expect(expected_groups.count).to eq(available_groups.count)
+  expect(page).to have_css("#content .file_list_container", visible: true, count: expected_groups.count)
 
   # Verify each of the expected groups has a file list container and corresponding title and coverage number
   # as well as the correct number of links to files.
